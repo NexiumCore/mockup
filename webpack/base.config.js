@@ -24,7 +24,7 @@ module.exports = boilerpack({
   .addExtensions('.ts', '.tsx', '.scss')
   .addRule('typescript', {
     test: /\.(tsx|ts)$/,
-    use: 'awesome-typescript-loader',
+    use: 'ts-loader',
   })
   .addRule('sass', {
     test: /\.scss?$/,
