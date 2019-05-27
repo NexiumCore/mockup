@@ -10,7 +10,7 @@ before_script:
 script:
   - npm test
   - npm run build
-  - echo 'nexiumcore.com' > ./out/CNAME
+  - echo 'nexiumcore.com' > ./dist/CNAME
 
 deploy:
   provider: pages
