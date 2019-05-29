@@ -17,4 +17,11 @@ const start = () => {
 if (module.hot) {
   module.hot.accept('./App', () => requestAnimationFrame(start));
 }
+
+/**
+ * Include the debug code if it's a development build.
+ */
+if (DEBUG) {
+  import('preact/debug');
+}
 start();
