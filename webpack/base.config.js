@@ -2,6 +2,7 @@ const { boilerpack } = require('boilerpack');
 const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 
 module.exports = boilerpack({
   devServer: {
@@ -35,12 +36,11 @@ module.exports = boilerpack({
       template: resolve(__dirname, '../src/index.html'),
       filename: 'index.html',
       chunks: ['main'],
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
+      minify: true,
+      inlineSource: '.(js|css)$',
     }),
   )
+  .addPlugin(new HtmlWebpackInlineSourcePlugin())
   .withOutput({
     publicPath: '/',
     filename: '[hash].bundle.js',
