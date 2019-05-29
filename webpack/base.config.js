@@ -46,4 +46,5 @@ module.exports = boilerpack({
     filename: '[hash].bundle.js',
     chunkFilename: '[chunkhash].chunk.js',
     path: resolve(__dirname, '../dist'),
+    crossOriginLoading: 'anonymous',
   });
