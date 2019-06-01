@@ -6,6 +6,8 @@ import Router from 'preact-router';
 import Loading from './app/loading/Loading';
 import LoadingFailed from './app/loadingFailed/LoadingFailed';
 
+import style from './Auth.scss';
+
 /**
  * Authentication router.
  *
@@ -19,19 +21,29 @@ export default class Auth extends Component<{}, {}> {
    */
   public render(): JSX.Element {
     return (
-      <Router>
-        <AsyncRoute
-          path="/"
-          default
-          loading={() => <Loading />}
-          getComponent={() => this.fetchPage('Login')}
+      <div class={style.container}>
+        <div class={style.content}>
+          <Router>
+            <AsyncRoute
+              path="/"
+              default
+              loading={() => <Loading />}
+              getComponent={() => this.fetchPage('Login')}
+            />
+            <AsyncRoute
+              path="/register"
+              loading={() => <Loading />}
+              getComponent={() => this.fetchPage('Register')}
+            />
+          </Router>
+        </div>
+        <img
+          src={require('../static/login.jpg')}
+          class={style.background}
+          title=""
+          alt=""
         />
-        <AsyncRoute
-          path="/register"
-          loading={() => <Loading />}
-          getComponent={() => this.fetchPage('Register')}
-        />
-      </Router>
+      </div>
     );
   }
 

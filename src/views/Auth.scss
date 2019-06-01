@@ -1,0 +1,32 @@
+@import '../variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  padding: 0 5vh;
+  padding-top: 30vh;
+
+  h1 {
+    color: $heading-colour;
+  }
+
+  @media screen and (max-width: 1025px) {
+    padding: 5vh 3vw;
+  }
+}
+
+.background {
+  width: 66vw;
+  height: 100vh;
+  background-color: #000;
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

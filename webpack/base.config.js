@@ -22,14 +22,38 @@ module.exports = boilerpack({
   devtool: 'source-maps',
 })
   .addEntry('main', ['./src/Main', 'preact'])
-  .addExtensions('.ts', '.tsx', '.scss')
+  .addExtensions('.ts', '.tsx', '.scss', 'jpg', 'png')
   .addRule('typescript', {
     test: /\.(tsx|ts)$/,
     use: 'ts-loader',
   })
   .addRule('sass', {
     test: /\.scss?$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      'style-loader',
+      { loader: 'css-loader', options: { modules: true } },
+      'sass-loader',
+    ],
+  })
+  .addRule('image', {
+    test: /\.(gif|png|jpe?g|svg)$/i,
+    use: [
+      'file-loader',
+      {
+        loader: 'image-webpack-loader',
+        options: {
+          bypassOnDebug: true,
+          disable: true,
+          mozjpeg: {
+            progressive: true,
+            quality: 65,
+          },
+          webp: {
+            quality: 75,
+          },
+        },
+      },
+    ],
   })
   .addPlugin(
     new HtmlWebpackPlugin({

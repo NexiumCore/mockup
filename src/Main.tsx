@@ -2,6 +2,8 @@ import { h, render } from 'preact';
 
 import Router from './views/Router';
 
+import './global.scss';
+
 let node: Element;
 
 /**
