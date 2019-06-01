@@ -6,3 +6,5 @@ dist
 # Files
 package-lock.json
 stats.json
+# These files are generated from the bigger source files.
+*.webp

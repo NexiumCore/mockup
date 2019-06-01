@@ -10,7 +10,6 @@ module.exports = base
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
     }),
   )
   .addPlugin(

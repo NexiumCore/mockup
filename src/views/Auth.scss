@@ -26,6 +26,12 @@
   height: 100vh;
   background-color: #000;
 
+  source,
+  img {
+    width: 66vw;
+    height: 100vh;
+  }
+
   @media screen and (max-width: 1024px) {
     display: none;
   }

@@ -3,6 +3,14 @@ const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const imagemin = require('imagemin');
+const imageminWebp = require('imagemin-webp');
+
+imagemin(['src/static/*.{jpg,png}'], 'src/static', {
+  use: [imageminWebp({ quality: 50 })],
+})
+  .then(() => console.info('Image conversion done.'))
+  .catch(err => console.info(`Image conversion failed due to: ${err}`));
 
 module.exports = boilerpack({
   devServer: {
@@ -22,7 +30,7 @@ module.exports = boilerpack({
   devtool: 'source-maps',
 })
   .addEntry('main', ['./src/Main', 'preact'])
-  .addExtensions('.ts', '.tsx', '.scss', 'jpg', 'png')
+  .addExtensions('.ts', '.tsx', '.scss', 'jpg', 'png', 'webp')
   .addRule('typescript', {
     test: /\.(tsx|ts)$/,
     use: 'ts-loader',
@@ -36,7 +44,7 @@ module.exports = boilerpack({
     ],
   })
   .addRule('image', {
-    test: /\.(gif|png|jpe?g|svg)$/i,
+    test: /\.(gif|png|jpe?g|svg|webp)$/i,
     use: [
       'file-loader',
       {
@@ -45,7 +53,6 @@ module.exports = boilerpack({
           bypassOnDebug: true,
           disable: true,
           mozjpeg: {
-            progressive: true,
             quality: 65,
           },
           webp: {
