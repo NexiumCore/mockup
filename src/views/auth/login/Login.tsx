@@ -1,5 +1,7 @@
 import { Component, h } from 'preact';
 
+import Button from '../../../components/button/Button';
+
 /**
  * Login page.
  */
@@ -13,6 +15,12 @@ export default class Login extends Component<{}, {}> {
       <main>
         <h1>Login</h1>
         <p>Please log in to use the application.</p>
+        <Button
+          type="primary"
+          onClick={() => new Promise(resolve => setTimeout(resolve, 2000))}
+        >
+          Login
+        </Button>
         <p>
           <a href="/register">Click here</a> to register if you don't have an
           account.

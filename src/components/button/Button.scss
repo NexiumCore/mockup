@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+.button {
+  padding: 7px 20px;
+  margin: 2px 3px;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  color: #fff;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &:active:enabled {
+    transform: scale(0.97);
+  }
+}
+
+.primary {
+  background-color: $heading-colour;
+}
+
+.secondary {
+  background-color: $secondary-colour;
+}
+
+.ghost {
+  background: none;
+  color: $shading-colour;
+  border: 1px solid $shading-secondary;
+  padding: 6px 19px; // Remove 1px to account for the border.
+}
