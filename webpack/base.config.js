@@ -3,14 +3,8 @@ const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const imagemin = require('imagemin');
+const ImageMinPlugin = require('imagemin-webpack-plugin').default;
 const imageminWebp = require('imagemin-webp');
-
-imagemin(['src/static/*.{jpg,png}'], 'src/static', {
-  use: [imageminWebp({ quality: 50 })],
-})
-  .then(() => console.info('Image conversion done.'))
-  .catch(err => console.info(`Image conversion failed due to: ${err}`));
 
 module.exports = boilerpack({
   devServer: {
@@ -45,22 +39,7 @@ module.exports = boilerpack({
   })
   .addRule('image', {
     test: /\.(gif|png|jpe?g|svg|webp)$/i,
-    use: [
-      'file-loader',
-      {
-        loader: 'image-webpack-loader',
-        options: {
-          bypassOnDebug: true,
-          disable: true,
-          mozjpeg: {
-            quality: 65,
-          },
-          webp: {
-            quality: 75,
-          },
-        },
-      },
-    ],
+    use: ['file-loader'],
   })
   .addPlugin(
     new HtmlWebpackPlugin({
@@ -69,6 +48,11 @@ module.exports = boilerpack({
       chunks: ['main'],
       minify: true,
       inlineSource: '.(js|css)$',
+    }),
+  )
+  .addPlugin(
+    new ImageMinPlugin({
+      plugins: [imageminWebp({ quality: 50 })],
     }),
   )
   .addPlugin(new HtmlWebpackInlineSourcePlugin())
