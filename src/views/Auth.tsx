@@ -38,8 +38,8 @@ export default class Auth extends Component<{}, {}> {
           </Router>
         </div>
         <picture class={style.background}>
-          <source type="image/webp" src={require('../static/login.webp')} />
-          <source type="image/jpeg" src={require('../static/login.jpg')} />
+          <source type="image/webp" srcSet={require('../static/login.webp')} />
+          <source type="image/jpeg" srcSet={require('../static/login.jpg')} />
           <img src={require('../static/login.jpg')} title="" alt="" />
         </picture>
       </div>

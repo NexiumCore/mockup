@@ -2,7 +2,9 @@
   "name": "mockup",
   "version": "0.1.0",
   "description": "A working mockup for the main frontend",
-  "sideEffects": ["*.scss"],
+  "sideEffects": [
+    "*.scss"
+  ],
   "scripts": {
     "start": "webpack-dev-server --mode development --config ./webpack/dev.config.js",
     "test": "npm run lint",
