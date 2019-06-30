@@ -28,9 +28,10 @@
 
   source,
   img {
-    object-fit: cover;
     width: 66vw;
     height: 100vh;
+    vertical-align: top;
+    object-fit: cover;
   }
 
   @media screen and (max-width: 1024px) {
