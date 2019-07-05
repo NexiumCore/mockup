@@ -9,15 +9,19 @@
 
 .content {
   display: flex;
-  padding: 0 5vh;
-  padding-top: 30vh;
+  width: 100%;
+  padding: 25vh 4vw;
 
   h1 {
     color: $heading-colour;
   }
 
+  main {
+    width: 100%;
+  }
+
   @media screen and (max-width: 1025px) {
-    padding: 5vh 3vw;
+    padding: 5vh 10vw;
   }
 }
 

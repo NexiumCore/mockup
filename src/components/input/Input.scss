@@ -1,1 +1,17 @@
 @import '../../variables.scss';
+
+.label {
+  margin-top: 0.7em;
+  padding: 10px 0;
+}
+
+.input {
+  width: 100%;
+  padding: 0.4em 0;
+  border: 0;
+  border-bottom: 1px solid #000;
+
+  &:disabled {
+    background: 0;
+  }
+}

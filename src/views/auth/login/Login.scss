@@ -1,0 +1,15 @@
+@import '../../../variables.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  margin-left: auto;
+
+  a {
+    margin-right: 1em;
+    color: $heading-colour;
+  }
+}
