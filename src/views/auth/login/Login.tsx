@@ -42,7 +42,7 @@ export default class Login extends Component<{}, ILoginState> {
    */
   public doLogin(e: Event): void {
     e.preventDefault();
-    console.log('Form submit');
+
     this.setState({ disabled: true });
     setTimeout(() => this.setState({ disabled: false }), 3000);
   }
