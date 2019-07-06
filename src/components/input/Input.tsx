@@ -18,7 +18,9 @@ export default class Input extends Component<IInputProps, IInputState> {
         {this.props.children}
         <input
           class={style.input}
+          placeholder={this.props.placeholder}
           autofocus={this.props.autoFocus}
+          autocomplete={this.props.autoComplete}
           disabled={this.props.disabled}
           type={this.props.type}
           value={this.state.value}
@@ -43,9 +45,17 @@ export default class Input extends Component<IInputProps, IInputState> {
  */
 interface IInputProps {
   /**
+   * Placeholder on the input.
+   */
+  placeholder?: string;
+  /**
    * If the button has auto focus enabled.
    */
   autoFocus?: boolean;
+  /**
+   * The autocomplete properties of this input.
+   */
+  autoComplete?: string;
   /**
    * Indicate if the input is disabled.
    */
