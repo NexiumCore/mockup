@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../variables';
 
 .label {
   margin-top: 0.7em;
@@ -6,10 +6,10 @@
 }
 
 .input {
-  width: 100%;
-  padding: 0.4em 0;
   border: 0;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid $black;
+  padding: 0.4em 0;
+  width: 100%;
 
   &:disabled {
     background: 0;
