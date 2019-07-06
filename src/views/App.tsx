@@ -3,12 +3,15 @@ import { Component, h } from 'preact';
 import AsyncRoute from 'preact-async-route';
 import Router from 'preact-router';
 
-import Loading from './pages/loading/Loading';
-import LoadingFailed from './pages/loadingFailed/LoadingFailed';
-import NotFound from './pages/notFound/NotFound';
+import Loading from './app/loading/Loading';
+import LoadingFailed from './app/loadingFailed/LoadingFailed';
+import NotFound from './app/notFound/NotFound';
 
 /**
- * Main component of the application.
+ * Page router of the application.
+ *
+ * This routes the pages inside of the dashboard.
+ * The global routing is handled by the Router componentent.
  */
 export default class App extends Component<{}, {}> {
   /**
@@ -19,7 +22,7 @@ export default class App extends Component<{}, {}> {
     return (
       <Router>
         <AsyncRoute
-          path="/"
+          path="/app"
           loading={() => <Loading />}
           getComponent={() => this.fetchPage('Dashboard')}
         />
@@ -36,7 +39,7 @@ export default class App extends Component<{}, {}> {
    */
   private async fetchPage(page: string): Promise<JSX.Element> {
     try {
-      const module = await import(`./pages/${page.toLowerCase()}/${page}`);
+      const module = await import(`./app/${page.toLowerCase()}/${page}`);
       return module.default;
     } catch (e) {
       return LoadingFailed as any;

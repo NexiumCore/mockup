@@ -1,6 +1,8 @@
 import { h, render } from 'preact';
 
-import App from './App';
+import Router from './views/Router';
+
+import './global.scss';
 
 let node: Element;
 
@@ -8,14 +10,14 @@ let node: Element;
  * Start the application.
  */
 const start = () => {
-  node = render(<App />, document.body, node);
+  node = render(<Router />, document.body, node);
 };
 
 /**
  * Enable hot reloading for development
  */
 if (module.hot) {
-  module.hot.accept('./App', () => requestAnimationFrame(start));
+  module.hot.accept('./Router', () => requestAnimationFrame(start));
 }
 
 /**

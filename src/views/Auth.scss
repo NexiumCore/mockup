@@ -1,0 +1,44 @@
+@import '../variables';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.content {
+  display: flex;
+  padding: 25vh 4vw;
+  width: 100%;
+
+  h1 {
+    color: $heading-colour;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1025px) {
+    padding: 5vh 10vw;
+  }
+}
+
+.background {
+  background-color: $black;
+  height: 100vh;
+  width: 66vw;
+
+  source,
+  img {
+    height: 100vh;
+    object-fit: cover;
+    vertical-align: top;
+    width: 66vw;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+}

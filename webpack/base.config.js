@@ -3,6 +3,8 @@ const { resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const ImageMinPlugin = require('imagemin-webpack-plugin').default;
+const imageminWebp = require('imagemin-webp');
 
 module.exports = boilerpack({
   devServer: {
@@ -22,14 +24,22 @@ module.exports = boilerpack({
   devtool: 'source-maps',
 })
   .addEntry('main', ['./src/Main', 'preact'])
-  .addExtensions('.ts', '.tsx', '.scss')
+  .addExtensions('.ts', '.tsx', '.scss', 'jpg', 'png', 'webp')
   .addRule('typescript', {
     test: /\.(tsx|ts)$/,
     use: 'ts-loader',
   })
   .addRule('sass', {
     test: /\.scss?$/,
-    use: ['style-loader', 'css-loader', 'sass-loader'],
+    use: [
+      'style-loader',
+      { loader: 'css-loader', options: { modules: true } },
+      'sass-loader',
+    ],
+  })
+  .addRule('image', {
+    test: /\.(gif|png|jpe?g|svg|webp)$/i,
+    use: ['file-loader'],
   })
   .addPlugin(
     new HtmlWebpackPlugin({
@@ -38,6 +48,11 @@ module.exports = boilerpack({
       chunks: ['main'],
       minify: true,
       inlineSource: '.(js|css)$',
+    }),
+  )
+  .addPlugin(
+    new ImageMinPlugin({
+      plugins: [imageminWebp({ quality: 50 })],
     }),
   )
   .addPlugin(new HtmlWebpackInlineSourcePlugin())

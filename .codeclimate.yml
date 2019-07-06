@@ -1,0 +1,19 @@
+version: '2'
+checks:
+  similar-code:
+    enabled: false
+plugins:
+  csslint:
+    enabled: true
+  editorconfig:
+    enabled: true
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
+  sass-lint:
+    enabled: true
+  scss-lint:
+    enabled: true
+  tslint:
+    enabled: true

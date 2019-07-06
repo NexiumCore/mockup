@@ -1,0 +1,27 @@
+@import './variables';
+
+html,
+body {
+  color: $shading-colour;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: .25em 0;
+}
+
+h1,
+h2 {
+  color: $shading-secondary;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+p {
+  margin: 8px 0;
+}

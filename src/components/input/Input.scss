@@ -1,0 +1,17 @@
+@import '../../variables';
+
+.label {
+  margin-top: .7em;
+  padding: 10px 0;
+}
+
+.input {
+  border: 0;
+  border-bottom: 1px solid $black;
+  padding: .4em 0;
+  width: 100%;
+
+  &:disabled {
+    background: 0;
+  }
+}
