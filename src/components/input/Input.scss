@@ -1,14 +1,14 @@
 @import '../../variables';
 
 .label {
-  margin-top: 0.7em;
+  margin-top: .7em;
   padding: 10px 0;
 }
 
 .input {
   border: 0;
   border-bottom: 1px solid $black;
-  padding: 0.4em 0;
+  padding: .4em 0;
   width: 100%;
 
   &:disabled {
