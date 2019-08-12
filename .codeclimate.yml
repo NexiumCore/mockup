@@ -16,5 +16,9 @@ plugins:
     enabled: true
   scss-lint:
     enabled: true
+    config:
+      LeadingZero:
+        enabled: true
+        style: include_zero
   tslint:
     enabled: true
