@@ -19,10 +19,20 @@ export default class Login extends Component<{}, ILoginState> {
         <h1>Login</h1>
         <p>Please log in to use the application.</p>
         <form class={style.form} onSubmit={e => this.doLogin(e)}>
-          <Input autoFocus={true} disabled={this.state.disabled}>
+          <Input
+            placeholder="john.doe"
+            autoFocus={true}
+            disabled={this.state.disabled}
+            autoComplete="section-login username"
+          >
             Username
           </Input>
-          <Input type="password" disabled={this.state.disabled}>
+          <Input
+            placeholder="qwerty"
+            type="password"
+            disabled={this.state.disabled}
+            autoComplete="section-login password"
+          >
             Password
           </Input>
           <span class={style.buttons}>

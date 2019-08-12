@@ -3,7 +3,6 @@ import { Component, h } from 'preact';
 import AsyncRoute from 'preact-async-route';
 import PreactRouter from 'preact-router';
 
-import Loading from './router/loading/Loading';
 import LoadingFailed from './router/loadingFailed/LoadingFailed';
 import NotFound from './router/notFound/NotFound';
 
@@ -24,17 +23,17 @@ export default class Router extends Component<{}, {}> {
       <PreactRouter>
         <AsyncRoute
           path="/"
-          loading={() => <Loading />}
+          loading={() => <main />}
           getComponent={() => this.fetchPage('Auth')}
         />
         <AsyncRoute
           path="/register"
-          loading={() => <Loading />}
+          loading={() => <main />}
           getComponent={() => this.fetchPage('Auth')}
         />
         <AsyncRoute
           path="/app/:page?"
-          loading={() => <Loading />}
+          loading={() => <main />}
           getComponent={() => this.fetchPage('App')}
         />
         <NotFound default />
